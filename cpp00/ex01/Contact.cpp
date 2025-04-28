@@ -2,18 +2,38 @@
 #include   <iostream>
 
 
-void Contact ::setter()
+
+void  check_empty(std ::string s1 , std ::string s2)
+{
+    while(s1.empty())
+    {
+    std ::cout <<s2<<"\n" ;
+    std ::getline (std ::cin ,s1) ;
+    if(std::cin.eof())
+        {
+        std ::cout <<"eof\n" ;
+        exit(0);
+        }
+    }
+
+}
+void Contact ::setter() 
 {
     std :: cout <<"Enter First Name\n" ;
     std ::getline(std :: cin,first_name);
+    check_empty(first_name ,"Enter First Name\n" ) ;
     std :: cout <<"Enter Last name\n" ;
     std :: getline(std::cin,last_name) ;
+     check_empty(last_name ,"Enter Last name\n" ) ;
     std :: cout <<"Enter Nickname\n" ;
     std :: getline(std::cin,nickname) ;
+     check_empty(nickname ,"Enter Nickname\n" ) ;
     std :: cout <<"Enter Phone Number\n" ;
     std :: getline(std::cin,phone) ;
+     check_empty(phone ,"Enter Phone Number\n" )  ;
     std :: cout <<"Enter Darkest Secret\n" ;
     std :: getline(std ::cin,darkest_secret) ;
+    check_empty(darkest_secret ,"Enter Darkest Secret\n" ) ;
 }
 std :: string  format_string(std :: string str)
 {

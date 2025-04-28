@@ -12,7 +12,7 @@
 #include <functional>
 #include "Account.hpp"
 
-
+//@yassineWoW
 int		main( void ) {
 
 	typedef std::vector<Account::t>							  accounts_t;
@@ -36,10 +36,11 @@ int		main( void ) {
 	ints_t				withdrawals( w, w + w_size );
 	ints_t::iterator	wit_begin	= withdrawals.begin();
 	ints_t::iterator	wit_end		= withdrawals.end();
-
+    std :: cout <<"\n" ;
 	Account::displayAccountsInfos();
+	std :: cout <<"\n" ;
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
-
+	std :: cout <<"\n" ;
 	for ( acc_int_t it( acc_begin, dep_begin );
 		  it.first != acc_end && it.second != dep_end;
 		  ++(it.first), ++(it.second) ) {
@@ -47,7 +48,10 @@ int		main( void ) {
 		(*(it.first)).makeDeposit( *(it.second) );
 	}
 
+	std :: cout <<"\n" ;
+ 
 	Account::displayAccountsInfos();
+	std :: cout <<"\n" ;
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 
 	for ( acc_int_t it( acc_begin, wit_begin );
@@ -57,7 +61,9 @@ int		main( void ) {
 		(*(it.first)).makeWithdrawal( *(it.second) );
 	}
 
+	std :: cout <<"\n" ;
 	Account::displayAccountsInfos();
+	std :: cout <<"\n" ;
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 
 	return 0;

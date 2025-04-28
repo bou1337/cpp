@@ -14,20 +14,28 @@ void PhoneBook ::add_contact()
     if(c<8)
     c++ ;
 }
-
-
 int valid_index(std::string s)
 {
     int i = 0;
+    int index  ;
+    if(s.empty())
+    return -1 ;
     while (i < s.length())
     {
-        if (s[i] > '9' || s[i] < '0') 
+        if (s[i] > '7' || s[i] < '0') 
             return -1; 
         i++;
     }
+    i = 0 ;
+    while(i<s.length())
+    {
+        index =s[i] -'0' ;
+        if(index>=8)
+        return -1 ;
+        i++ ;
+    }
+    return  index ;
 
-    int n = std::stoi(s)   ;  
-    return n;  
 }
 
 void PhoneBook ::search_contact()
@@ -46,11 +54,22 @@ void PhoneBook ::search_contact()
     std ::string index  ;
     std::cout <<"Enter Index To All Details\n" ;
     std::getline(std::cin ,index) ;
+    if(std::cin.eof())
+        {
+        std ::cout <<"eof\n" ;
+        exit(0);
+        }
 
-    if(valid_index(index)==-1|| valid_index(index)>=c)
+    while(valid_index(index)==-1|| valid_index(index)>=c)
     {
-        std :: cout <<"invalid index\n" ;
-        return ;
+        std :: cout <<"invalid index try again\n" ;
+         std ::getline(std ::cin ,index) ;
+         if(std::cin.eof())
+        {
+        std ::cout <<"eof\n" ;
+        exit(0);
+        }
+
     }
     contact[valid_index(index)].display() ;
 

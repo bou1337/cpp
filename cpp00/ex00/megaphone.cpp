@@ -24,6 +24,7 @@ int main(int ac , char *av[])
           std ::cout <<" " ;
         }
     }
+    else 
         std :: cout <<"* LOUD AND UNBEARABLE FEEDBACK NOISE *" ;
 
         std :: cout <<"\n" ;

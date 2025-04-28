@@ -30,14 +30,20 @@ public:
 	static int	getTotalAmount( void );
 	static int	getNbDeposits( void );
 	static int	getNbWithdrawals( void );
+	//display global info 
 	static void	displayAccountsInfos( void );
 
+	// Constructor
 	Account( int initial_deposit );
+	//destrutor
 	~Account( void );
-
+    ///make deposit 
 	void	makeDeposit( int deposit );
+	//// Make a withdrawal
 	bool	makeWithdrawal( int withdrawal );
+	// retrun amount for every   account 
 	int		checkAmount( void ) const;
+	//status for every account 
 	void	displayStatus( void ) const;
 
 
