@@ -16,11 +16,11 @@ void PhoneBook ::add_contact()
 }
 int valid_index(std::string s)
 {
-    int i = 0;
+    size_t i = 0;
     int index  ;
     if(s.empty())
     return -1 ;
-    while (i < s.length())
+    while (i <s.length())
     {
         if (s[i] > '7' || s[i] < '0') 
             return -1; 
