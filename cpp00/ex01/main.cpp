@@ -23,7 +23,6 @@ int  main()
         PhoneBook.add_contact() ;
         else if(command =="SEARCH")
         PhoneBook.search_contact() ;
-        //else if(command=="");
         else if(command=="EXIT") 
             break ;
         else 

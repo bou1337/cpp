@@ -2,21 +2,34 @@
 #include   <iostream>
 
 
+bool isPrintableString(const std::string& str) {
+    for (size_t i = 0; i < str.length(); ++i) {
+        if (str[i] < 32 || str[i] > 126)
+            return false;
+    }
+    return true;
+}
 
-void  check_empty(std ::string s1 , std ::string s2)
+
+void check_empty(std::string& s1, const std::string& prompt)
 {
-    while(s1.empty())
+    while (s1.empty() || !isPrintableString(s1))
     {
-    std ::cout <<s2<<"\n" ;
-    std ::getline (std ::cin ,s1) ;
-    if(std::cin.eof())
+        if (s1.empty())
+            std::cout << prompt;
+        else
+            std::cout << "Input contains unprintable characters\n" << prompt;
+
+        std::getline(std::cin, s1);
+
+        if (std::cin.eof())
         {
-        std ::cout <<"eof\n" ;
-        exit(0);
+            std::cout << "eof\n";
+            exit(0);
         }
     }
-
 }
+
 void Contact ::setter() 
 {
     std :: cout <<"Enter First Name\n" ;
