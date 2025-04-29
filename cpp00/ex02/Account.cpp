@@ -128,7 +128,7 @@ void Account::_displayTimestamp()
 	
 	local =  std::localtime(&t) ;
 	char buff[20] ;
-	std :: strftime(buff,20, "[%Y%m%d_%H%M%S]",local) ;
+	std :: strftime(buff,20, "[%Y%m%d_%H%M%S] ",local) ;
 	std :: cout <<buff   ;
     
 }
