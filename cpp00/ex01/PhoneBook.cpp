@@ -1,6 +1,7 @@
 #include "PhoneBook.hpp" 
 
-PhoneBook::PhoneBook(int x)
+PhoneBook::PhoneBook : c(x)() 
+{}
 {
     c= x ;
 } ;
