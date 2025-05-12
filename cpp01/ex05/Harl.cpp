@@ -19,10 +19,12 @@ void Harl::error()
     std :: cout <<"This is unacceptable! I want to speak to the manager now.\n" ;
 }
 
+
+
 void Harl::complain( std::string level )
 {
 
-    void (Harl::*func_ptr[])() ={&Harl::debug ,&Harl::info  , &Harl::warning  , &Harl::error } ;
+    void (Harl::*func_ptr[4])() ={&Harl::debug ,&Harl::info  , &Harl::warning  , &Harl::error } ;
     
     std ::string level_tab[] ={"debug", "info" ,"warning" ,"error"} ;
     Harl H  ;
@@ -32,3 +34,4 @@ void Harl::complain( std::string level )
         (H.*func_ptr[i])() ;
     }
 }
+

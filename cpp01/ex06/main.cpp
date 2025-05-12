@@ -7,7 +7,6 @@ int main(int ac, char **av) {
         std::cerr << "Usage: ./harlFilter <level>\n";
         return 1;
     }
-
     Harl harl;
     harl.complain(av[1]);
     return 0;

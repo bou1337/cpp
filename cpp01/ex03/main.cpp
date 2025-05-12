@@ -6,13 +6,13 @@ int main() {
     Weapon sword("Sword");
     Weapon axe("Axe");
 
-    HumanA alice("Alice", sword);  // Alice has a sword
-    alice.attack();  // Alice attacks with their Sword
+    HumanA alice("Alice", sword); 
+    alice.attack();  
 
-    HumanB bob("Bob");  // Bob has no weapon initially
-    bob.attack();  // Bob has no weapon to attack with
-    bob.setWeapon(axe);  // Bob is now armed with an axe
-    bob.attack();  // Bob attacks with their Axe
+    HumanB bob("Bob"); 
+    bob.attack();  
+    bob.setWeapon(axe);  
+    bob.attack();  
 
     return 0;
 }
