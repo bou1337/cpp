@@ -7,14 +7,14 @@ std::string ft_replace(std::string str, const std::string& s1, const std::string
 int main(int ac, char **av) {
     if (ac == 4) {
         std::string inputFile = av[1];
-        std::ifstream file(inputFile);
+        std::ifstream file(inputFile.c_str());
         if (!file.is_open()) {
             std::cerr << "ERROR: CAN'T OPEN THE FILE\n";
             return 1;
         }
 
         std::string outputFile = inputFile + ".replace";
-        std::ofstream outFile(outputFile);
+        std::ofstream outFile(outputFile.c_str());
         if (!outFile.is_open()) {
             std::cerr << "ERROR: CAN'T CREATE THE FILE\n";
             return 1;

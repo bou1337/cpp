@@ -1,10 +1,10 @@
 
 
-NAME = BraiiiiiiinnnzzzZ
+NAME = program
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp 
+SRCS =  read_from_file.cpp main.cpp
        
 OBJS = $(SRCS:.cpp=.o)
 

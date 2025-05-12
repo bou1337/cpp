@@ -6,7 +6,11 @@ int main()
 {
     int N =5 ;
     Zombie   *z = zombieHorde(N ,"bou");
-    delete z ;
+    for(int  i = 0 ; i<N ; i++)
+    {
+        z[i].announce() ;
+    }
+    delete[] z ;
 
    
 
