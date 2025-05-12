@@ -34,17 +34,15 @@ void Harl::complain(std::string level) {
     for (int j = 0; j < 4; ++j) {
         if (level == levels[j]) {
             i = j;
+
             break;
         }
     }
-
     switch (i) {
         case 0:
             (this->*functions[0])();
-            // fall through
         case 1:
             (this->*functions[1])();
-            // fall through
         case 2:
         (this->*functions[2])();
         
