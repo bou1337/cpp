@@ -18,7 +18,7 @@ public:
 
     ~Fixed();
     float toFloat() const;
-    int toInt() const;
+    int toInt() const;  
     bool operator>(const Fixed& obj) const;
     bool operator<(const Fixed& obj) const;
     bool operator>=(const Fixed& obj) const;

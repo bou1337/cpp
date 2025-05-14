@@ -82,7 +82,7 @@ Fixed Fixed::operator-(const Fixed& obj) const {
 
 Fixed Fixed::operator*(const Fixed& obj) const {
     Fixed result;
-    result.fixed_point = (fixed_point * obj.fixed_point) /256;
+    result.fixed_point = (fixed_point * obj.fixed_point) /256.0;
     return result;
 }
 

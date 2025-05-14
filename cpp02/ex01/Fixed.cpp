@@ -12,7 +12,7 @@ Fixed::Fixed(const int n) {
 }
 
 Fixed::Fixed(const float f) {
-    fixed_point = roundf(f*256);
+    fixed_point = (f*256);
     std::cout << "Float constructor called\n";
 }
 
