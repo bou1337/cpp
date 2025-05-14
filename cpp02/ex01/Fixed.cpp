@@ -12,7 +12,7 @@ Fixed::Fixed(const int n) {
 }
 
 Fixed::Fixed(const float f) {
-    fixed_point = roundf(f *256);
+    fixed_point = roundf(f*256);
     std::cout << "Float constructor called\n";
 }
 
@@ -37,7 +37,7 @@ float Fixed::toFloat(void) const {
 }
 
 int Fixed::toInt(void) const {
-    return fixed_point/256 ;
+    return fixed_point/256.0 ;
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
