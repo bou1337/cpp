@@ -1,16 +1,17 @@
 #include "Fixed.hpp"
 #include <iostream>
+#include <cmath>
 
 Fixed::Fixed() : fixed_point(0) {
     std :: cout<<"Default constructor called\n" ;
 }
 
-Fixed::Fixed(int n) : fixed_point(n << num_frac_bit) {
+Fixed::Fixed(int n) : fixed_point(n*256) {
     std :: cout <<"Int constructor called\n" ;
 
 }
 
-Fixed::Fixed(float f) : fixed_point(static_cast<int>(f * (1 << num_frac_bit))) {
+Fixed::Fixed(float f) : fixed_point(roundf(f * 256)) {
     std ::cout <<"Float constructor called\n" ;
 }
 
@@ -29,17 +30,16 @@ Fixed& Fixed::operator=(const Fixed& obj) {
 
 // Destructor
 Fixed::~Fixed() {
-    std :: cout <<"Destructor called\n" ;
+    std :: cout <<"Destructor is called\n" ;
 
 }
 
 // Conversion functions
 float Fixed::toFloat() const {
-    return static_cast<float>(fixed_point) / (1 << num_frac_bit);
+    return (fixed_point / 256.0);
 }
-
 int Fixed::toInt() const {
-    return fixed_point >> num_frac_bit;
+    return fixed_point/256 ;
 }
 
 // Comparison operators
@@ -82,7 +82,7 @@ Fixed Fixed::operator-(const Fixed& obj) const {
 
 Fixed Fixed::operator*(const Fixed& obj) const {
     Fixed result;
-    result.fixed_point = (fixed_point * obj.fixed_point) >> num_frac_bit;
+    result.fixed_point = (fixed_point * obj.fixed_point) /256;
     return result;
 }
 
@@ -91,7 +91,7 @@ Fixed Fixed::operator/(const Fixed& obj) const {
         throw std::invalid_argument("Division by zero");
     }
     Fixed result;
-    result.fixed_point = (fixed_point << num_frac_bit) / obj.fixed_point;
+    result.fixed_point = (fixed_point  / obj.fixed_point)/256.0;
     return result;
 }
 
@@ -135,7 +135,6 @@ const Fixed& Fixed::max(const Fixed& obj1, const Fixed& obj2) {
     return (obj1.fixed_point > obj2.fixed_point) ? obj1 : obj2;
 }
 
-// Stream insertion operator
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
     os << fixed.toFloat();
     return os;

@@ -3,6 +3,7 @@
         "functional": "cpp",
         "vector": "cpp",
         "iostream": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "stdexcept": "cpp"
     }
 }
