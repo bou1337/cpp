@@ -68,10 +68,10 @@ bool Fixed::operator!=(const Fixed& obj) const {
 }
 
 // Arithmetic operators
-Fixed Fixed::operator+(const Fixed& obj) const {
-    Fixed result;
-    result.fixed_point = fixed_point + obj.fixed_point;
-    return result;
+Fixed Fixed::operator+(const Fixed& obj) const{
+    Fixed result ;
+    result.fixed_point = this->fixed_point + obj.fixed_point ;
+    return result ;
 }
 
 Fixed Fixed::operator-(const Fixed& obj) const {
@@ -87,11 +87,8 @@ Fixed Fixed::operator*(const Fixed& obj) const {
 }
 
 Fixed Fixed::operator/(const Fixed& obj) const {
-    if (obj.fixed_point == 0) {
-        throw std::invalid_argument("Division by zero");
-    }
     Fixed result;
-    result.fixed_point = (fixed_point  / obj.fixed_point)/256.0;
+    result.fixed_point = (fixed_point  / (obj.fixed_point))*256.0;
     return result;
 }
 

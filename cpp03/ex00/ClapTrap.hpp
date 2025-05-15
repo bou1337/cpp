@@ -8,9 +8,9 @@ class ClapTrap
 
     private :
     std :: string name ; 
-    int Hit_points ;
-    int Energy_points ;
-    int Attack_damage ;
+    long long  Hit_points ;
+    long long Energy_points ;
+    long long Attack_damage ;
 
     public :
     ClapTrap(std :: string name) ;

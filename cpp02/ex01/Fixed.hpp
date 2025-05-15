@@ -15,6 +15,7 @@ public:
     Fixed(const Fixed &obj); 
     Fixed& operator=(const Fixed &obj); 
     ~Fixed();
+    friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed)  ;
 
     float toFloat(void) const;
     int toInt(void) const;
