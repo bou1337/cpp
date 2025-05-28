@@ -24,7 +24,10 @@ ScavTrap :: ScavTrap(ScavTrap &obj) : ClapTrap(obj)
 
 ScavTrap & ScavTrap ::operator=(ScavTrap &obj)
 {
+    if (this != &obj) 
+   {
     ClapTrap ::operator=(obj) ;
+   }
     std :: cout <<"ScavTrap's assigment  operator called \n" ;
     return  *this ;   
 } 

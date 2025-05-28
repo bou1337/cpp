@@ -17,7 +17,7 @@ ScavTrap :: ScavTrap()
     Energy_point = 50 ;
     Attack_damage = 20 ;
     
-    std :: cout <<"ScavTrap's Constructor called\n" ;
+    std :: cout <<"ScavTrap's Default Constructor called\n" ;
 } 
 
 ScavTrap :: ScavTrap(ScavTrap &obj) : ClapTrap(obj)
@@ -27,7 +27,10 @@ ScavTrap :: ScavTrap(ScavTrap &obj) : ClapTrap(obj)
 
 ScavTrap & ScavTrap ::operator=(ScavTrap &obj)
 {
+    if (this != &obj) 
+    {
     ClapTrap ::operator=(obj) ;
+    }
     std :: cout <<"ScavTrap's assigment  operator called \n" ;
     return  *this ;   
 } 

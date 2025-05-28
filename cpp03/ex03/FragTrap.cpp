@@ -30,7 +30,10 @@ FragTrap ::FragTrap(FragTrap &obj):ClapTrap(obj)
 
 FragTrap&  FragTrap::operator=(FragTrap &obj)
 {
+    if (this != &obj) 
+    {
     ClapTrap::operator=(obj) ;
+    }
     std :: cout<<"FragTrap's operator assignment called\n" ;
     return *this ;
 }

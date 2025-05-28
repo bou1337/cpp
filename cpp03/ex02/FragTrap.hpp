@@ -2,7 +2,7 @@
 
 #ifndef FRAGTRAP_H
 #define FRAGTRAP_H
-#include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 class   FragTrap : public ClapTrap
 {
     public :

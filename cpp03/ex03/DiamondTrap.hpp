@@ -17,10 +17,9 @@ class DiamondTrap : public ScavTrap , public FragTrap
 
      ~DiamondTrap() ;
      void whoAmI();
-    // void attack(std ::string target) ;
-     void print()
-     {
-        std :: cout <<"Name="<<name<<" Hit_point=" <<Hit_point <<" Energy_point="<<Energy_point<<" Attack_damage="<<Attack_damage<<"\n" ;
-     }
+   //   void print()
+   //   {
+   //      std :: cout <<"Name="<<name<<" Hit_point=" <<Hit_point <<" Energy_point="<<Energy_point<<" Attack_damage="<<Attack_damage<<"\n" ;
+   //   }
 } ;
 #endif

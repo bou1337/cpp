@@ -21,15 +21,20 @@ DiamondTrap ::DiamondTrap()
     std :: cout <<"Diamondtrap's default constructor called\n" ;
 }
 
-DiamondTrap ::DiamondTrap(DiamondTrap &obj) : ClapTrap(obj) 
+DiamondTrap ::DiamondTrap(DiamondTrap &obj) :ClapTrap(obj) ,  ScavTrap() , FragTrap() 
 {
+    this->name = obj.name ;
     std :: cout <<"DiamondTrap's copy constructor called \n" ;
 }
 
 DiamondTrap  & DiamondTrap::operator=(DiamondTrap &obj) 
 {
+   if (this != &obj) 
+    {
     ClapTrap ::operator=(obj) ;
+    this->name = obj.name  ;
     std :: cout <<"DiamondTrap's  copy assignment called\n" ;
+    }
     return *this ;
 }
 

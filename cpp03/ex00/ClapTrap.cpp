@@ -33,10 +33,14 @@ ClapTrap :: ClapTrap(ClapTrap &obj)
 ClapTrap& ClapTrap ::operator=(ClapTrap&obj)
 {
     
-    this->Hit_point = obj.Hit_point ;
-    this->Energy_point = obj.Energy_point ;
-    this->Attack_damage = obj.Attack_damage ;
-    this->name = obj.name ;
+    if (this != &obj) 
+    {
+
+        this->Hit_point = obj.Hit_point ;
+        this->Energy_point = obj.Energy_point ;
+        this->Attack_damage = obj.Attack_damage ;
+        this->name = obj.name ;
+    }
     std :: cout <<"ClapTrap's assignment operator called \n" ;
     return  *this   ;
 }
