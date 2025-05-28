@@ -14,7 +14,7 @@ ScavTrap :: ScavTrap(std ::string name)
 ScavTrap :: ScavTrap() :ClapTrap()
 {
     
-    std :: cout <<"ScavTrap's Constructor called\n" ;
+    std :: cout <<"ScavTrap's default Constructor called\n" ;
 } 
 
 ScavTrap :: ScavTrap(ScavTrap &obj) : ClapTrap(obj)

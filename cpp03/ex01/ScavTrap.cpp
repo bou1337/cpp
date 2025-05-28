@@ -11,8 +11,11 @@ ScavTrap :: ScavTrap(std ::string name)
     std :: cout <<"ScavTrap's constructor called\n" ;
 }
 
-ScavTrap :: ScavTrap() :ClapTrap()
+ScavTrap :: ScavTrap()
 {
+    Hit_point = 100 ;
+    Energy_point = 50 ;
+    Attack_damage = 20 ;
     
     std :: cout <<"ScavTrap's Constructor called\n" ;
 } 
