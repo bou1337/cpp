@@ -3,7 +3,7 @@
 #define BUREAUCAT_H
 #include <string>
 #include <iostream>
-
+#include "Form.hpp"
 class Bureaucrat
 {
     private :
@@ -16,6 +16,8 @@ class Bureaucrat
         Bureaucrat(std :: string name , int grade) ;
         Bureaucrat(Bureaucrat &obj) ;
         Bureaucrat & operator=(Bureaucrat &obj) ;
+
+        void Bureaucrat::signForm(Form& form)  ;
         ~Bureaucrat() ;
         class GradeTooHighException :public std ::exception 
         {
