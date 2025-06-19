@@ -4,13 +4,11 @@
 #define FPRM_H
 #include "Bureaucrat.hpp"
 
-
-
 class Form
 {
     private :
         std :: string  name ;
-        bool sign = false ;
+        bool sign  ;
         const int grade_to_sign ;
         const int  grade_to_execute ;
 
@@ -25,7 +23,6 @@ class Form
         int get_grade_execute() ;
         void beSigned(Bureaucrat& obj) ;
         ~Form() ;
-       
 
         class GradeTooHighException : public  std ::exception
         {
@@ -33,11 +30,12 @@ class Form
             const  char * what() const noexcept ;
         } ;
         class GradeTooLowException :std ::exception
-        {
+        {   
+            public :
             const  char * what() const noexcept ;
         } ;
 
 
 
-}
+} ;
 #endif
