@@ -1,11 +1,13 @@
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat ::Bureaucrat(std :: string name , int grade)
+Bureaucrat ::Bureaucrat(std :: string name , int grade): name(name) , grade(grade)
 {
-    this->name = name ;
-    this ->grade = grade ;
     std :: cout <<"Bureaucrat's Constructor called\n" ;
+     if (grade < 1)
+        throw GradeTooHighException();
+    else if (grade > 150)
+        throw GradeTooLowException();
 }
 
 Bureaucrat ::Bureaucrat(Bureaucrat  & obj)
@@ -23,6 +25,7 @@ Bureaucrat& Bureaucrat  ::operator=(Bureaucrat& obj)
         this ->grade = obj.grade ;
     }
     std :: cout <<"Bureaucrat's operator assigment called\n" ;
+    return *this ;
 }
 
 std :: string Bureaucrat :: getName()
@@ -39,3 +42,31 @@ Bureaucrat ::~Bureaucrat()
  {
     std :: cout <<"Bureaucrat's Destructor called\n" ;
  }
+
+ const char *Bureaucrat ::GradeTooHighException::what() const noexcept
+ {
+    return "Grade Too High" ;
+ } 
+
+ const char * Bureaucrat ::GradeTooLowException::what() const noexcept
+ {
+    return "Grade Too Low" ;
+ }
+
+ std ::ostream &  operator<<(std ::ostream& os , Bureaucrat& obj)
+ {
+    std :: cout <<obj.name<<" bureaucrat grade "<<obj.grade<<"\n" ;
+    return os ;
+ }
+
+void Bureaucrat :: decrement()
+{
+    grade++ ;
+    throw GradeTooLowException() ;
+}
+void  Bureaucrat ::increment()
+{
+    grade --;
+    if (grade<1)
+    throw GradeTooHighException() ;
+}
