@@ -14,11 +14,12 @@ int main() {
         std :: cout << obj1 ;
         obj1.increment() ;
         std :: cout << obj1 ;
-        Bureaucrat obj2 ("Bureaucrat2" ,1) ;
+        Bureaucrat obj2 (obj1) ;
         std :: cout << obj2.getGrade()<<"\n" ;
         std :: cout << obj2.getName()<<"\n" ;
-        obj2.increment() ;
-        
+        obj1 = obj2 ;
+        std :: cout << obj1.getGrade()<<"\n" ;
+        std :: cout << obj1.getName()<<"\n" ;
     }
     catch (const std::exception& e) {
         std::cout << "Exception handling: " << e.what() << "\n";
