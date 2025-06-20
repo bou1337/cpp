@@ -1,8 +1,11 @@
 
 
 #ifndef FORM_H
-#define FPRM_H
-#include "Bureaucrat.hpp"
+#define FORM_H
+#include <string>
+#include <iostream>
+
+class Bureaucrat ;
 
 class Form
 {
@@ -21,6 +24,7 @@ class Form
         bool get_sing() ;
         int get_grade_sign() ;
         int get_grade_execute() ;
+        std ::string get_name() ;
         void beSigned(Bureaucrat& obj) ;
         ~Form() ;
 

@@ -1,13 +1,14 @@
 
-#ifndef BUREAUCAT_H
-#define BUREAUCAT_H
+#ifndef BUREAUCRAT_H
+#define BUREAUCRAT_H
 #include <string>
-#include <iostream>
-#include "Form.hpp"
+
+class Form ;
+
 class Bureaucrat
 {
     private :
-        std :: string name ;
+        std::string name ;
         int grade ;
     public :
         std :: string  getName();
@@ -17,7 +18,7 @@ class Bureaucrat
         Bureaucrat(Bureaucrat &obj) ;
         Bureaucrat & operator=(Bureaucrat &obj) ;
 
-        void Bureaucrat::signForm(Form& form)  ;
+        void signForm(Form& form)  ;
         ~Bureaucrat() ;
         class GradeTooHighException :public std ::exception 
         {

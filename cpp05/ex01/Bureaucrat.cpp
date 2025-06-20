@@ -1,6 +1,6 @@
 
 #include "Bureaucrat.hpp"
-
+#include "Form.hpp"
 Bureaucrat ::Bureaucrat()
 {
     std :: cout<<"Bureaucrat's Default Constructor called\n" ;
@@ -73,4 +73,14 @@ void  Bureaucrat ::increment()
     grade --;
     if (grade<1)
     throw GradeTooHighException() ;
+}
+
+
+void  Bureaucrat :: signForm(Form& form) 
+{
+    if(grade<form.get_grade_sign())
+    std :: cout <<name<< " signed " <<form.get_name()<<"\n" ;
+    else 
+    std :: cout <<name<<" Couldn't sign "<<form.get_name()<<"\n" ;
+
 }
