@@ -78,7 +78,7 @@ void  Bureaucrat ::increment()
 
 void  Bureaucrat :: signForm(Form& form) 
 {
-    if(grade<form.get_grade_sign())
+    if(grade<=form.get_grade_sign())
     std :: cout <<name<< " signed " <<form.get_name()<<"\n" ;
     else 
     std :: cout <<name<<" Couldn't sign "<<form.get_name()<<"\n" ;

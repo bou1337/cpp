@@ -12,7 +12,7 @@ class Bureaucrat
         int grade ;
     public :
         std :: string  getName();
-        int getGrade() ;
+       int getGrade() ;
         Bureaucrat() ;
         Bureaucrat(std :: string name , int grade) ;
         Bureaucrat(Bureaucrat &obj) ;

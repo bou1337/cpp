@@ -12,9 +12,9 @@ Form ::Form( ) : grade_to_execute(0),grade_to_sign(0) , name("Grade name")
 Form :: Form(std :: string  name , int grade_to_sign , int grade_to_execute ) : grade_to_sign(grade_to_sign) , grade_to_execute(grade_to_execute), name(name)
 {
     std :: cout <<"Form's Constructor called\n" ;
-    if(grade_to_execute<1 || grade_to_sign<1)
+    if(grade_to_sign<1|| grade_to_execute<1)
     throw GradeTooHighException() ;
-    if(grade_to_sign>150 || grade_to_execute>150)
+    if(grade_to_sign>150|| grade_to_execute>150)
     throw GradeTooLowException() ;
 }
 

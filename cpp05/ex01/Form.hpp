@@ -31,12 +31,12 @@ class Form
         class GradeTooHighException : public  std ::exception
         {
             public :
-            const  char * what() const noexcept ;
+            const  char * what() const noexcept override ;
         } ;
-        class GradeTooLowException :std ::exception
+        class GradeTooLowException :public std ::exception
         {   
             public :
-            const  char * what() const noexcept ;
+            const  char * what() const noexcept override;
         } ;
 
 
