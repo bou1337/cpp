@@ -14,7 +14,8 @@ int main()
     Bur1.signForm(Form1) ;
     Form1.beSigned(Bur1) ;
     std :: cout <<Form1 ;
-
+    Form Form2("Form2" , 10,  10) ;
+    std :: cout <<Form2  ;
     }
     catch(const std :: exception &e)
     {
