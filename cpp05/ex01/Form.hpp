@@ -21,7 +21,7 @@ class Form
         Form(std :: string  name , int grade_to_sign , int grade_to_execute ) ;
         Form(Form &obj) ;
         Form & operator =(Form &obj) ;
-        bool get_sing() ;
+        bool get_sign() ;
         int get_grade_sign() ;
         int get_grade_execute() ;
         std ::string get_name() ;
@@ -38,8 +38,6 @@ class Form
             public :
             const  char * what() const noexcept override;
         } ;
-
-
-
 } ;
+std :: ostream & operator<<(std ::ostream &os , Form &obj)  ;
 #endif

@@ -59,7 +59,7 @@ Bureaucrat ::~Bureaucrat()
 
  std ::ostream &  operator<<(std ::ostream& os , Bureaucrat& obj)
  {
-    std :: cout <<obj.name<<" bureaucrat grade "<<obj.grade<<"\n" ;
+    std :: cout <<obj.getName()<<" bureaucrat grade "<<obj.getGrade()<<"\n" ;
     return os ;
  }
 

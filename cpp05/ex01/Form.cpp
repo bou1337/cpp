@@ -9,8 +9,8 @@ Form ::Form( ) : grade_to_execute(0),grade_to_sign(0) , name("Grade name")
     std :: cout <<"Form's default constructor called\n" ;
 } 
 
-Form :: Form(std :: string  name , int grade_to_sign , int grade_to_execute ) : grade_to_sign(grade_to_sign) , grade_to_execute(grade_to_execute), name(name)
-{
+Form :: Form(std :: string  name , int grade_to_sign , int grade_to_execute ) : grade_to_sign(grade_to_sign) , grade_to_execute(grade_to_execute), name(name) , sign(false) 
+{   
     std :: cout <<"Form's Constructor called\n" ;
     if(grade_to_sign<1|| grade_to_execute<1)
     throw GradeTooHighException() ;
@@ -40,7 +40,7 @@ Form ::~Form()
     return *this ;
  }
 
-bool Form :: get_sing() 
+bool Form :: get_sign() 
 {
     return sign ;
 } 
@@ -73,3 +73,13 @@ const char* Form::GradeTooLowException::what() const noexcept {
  {
     return name  ;
  }
+
+
+ std ::ostream & operator<<(std ::ostream &os , Form  &obj)
+ {
+
+    std :: cout <<"Form's name "<<obj.get_name()<<" From's status "<<obj.get_sign()<<" Grade to sign "<<obj.get_grade_sign() <<" Grade to execute "<<obj.get_grade_execute()<<"\n" ;
+    return os ;
+ }
+
+

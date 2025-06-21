@@ -29,8 +29,7 @@ class Bureaucrat
             const char * what() const  noexcept override ;
         } ;
         void decrement() ;
-        void increment() ;
-        friend  std ::ostream &  operator<<(std ::ostream& os , Bureaucrat& obj) ;
-        
+        void increment() ;     
 } ;
+std ::ostream &  operator<<(std ::ostream& os , Bureaucrat& obj) ;
 #endif
