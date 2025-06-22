@@ -1,7 +1,9 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
-Bureaucrat::Bureaucrat() : name("default"), grade(150) {}
+Bureaucrat::Bureaucrat() : name("default"), grade(150) {
+    std :: cout <<"Bureaucrat's Default Constructor called\n" ;
+}
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade)
 {
@@ -9,6 +11,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade)
         throw GradeTooHighException();
     else if (grade > 150)
         throw GradeTooLowException();
+    std :: cout  <<"Bureaucrat's Constructor called\n" ;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &obj) : name(obj.name), grade(obj.grade) {}

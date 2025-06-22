@@ -31,7 +31,6 @@ AForm &AForm::operator=(const AForm &obj)
 {
     if (this != &obj)
     {
-        // name, grade_to_sign, and grade_to_execute are const and cannot be assigned
         this->sign = obj.sign;
     }
     std::cout << "Copy assignment operator called\n";
@@ -73,6 +72,13 @@ const char* AForm::GradeTooLowException::what() const noexcept {
     return "Form: Grade too low!";
 }
 
+const char* AForm::NotSignedException::what() const noexcept {
+    return "Form not signed!";
+}
+
+
+
+
 std::ostream &operator<<(std::ostream &os, const AForm &obj)
 {
     os << "Form's name: " << obj.get_name()
@@ -83,3 +89,11 @@ std::ostream &operator<<(std::ostream &os, const AForm &obj)
 }
 
 
+
+void  AForm ::checkExecution(Bureaucrat const & executor) const
+{
+    if(!get_sign())
+    throw NotSignedException() ;
+    if(executor.getGrade()>grade_to_execute)
+    throw GradeTooLowException()  ;
+}
