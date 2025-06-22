@@ -1,33 +1,31 @@
-
-#ifndef BUREAUCAT_H
-#define BUREAUCAT_H
+#ifndef BUREAUCRAT_H
+#define BUREAUCRAT_H
 #include <string>
 #include <iostream>
 
 class Bureaucrat
 {
     private :
-        std :: string name ;
-        int grade ;
+        std::string name;
+        int grade;
     public :
-        std :: string  getName();
-        int getGrade() ;
-        Bureaucrat() ;
-        Bureaucrat(std :: string name , int grade) ;
-        Bureaucrat(Bureaucrat &obj) ;
-        Bureaucrat & operator=(Bureaucrat &obj) ;
-        ~Bureaucrat() ;
-        class GradeTooHighException :public std ::exception 
+        std::string getName() const;
+        int getGrade() const;
+        Bureaucrat();
+        Bureaucrat(std::string name, int grade);
+        Bureaucrat(const Bureaucrat &obj);
+        Bureaucrat &operator=(const Bureaucrat &obj);
+        ~Bureaucrat();
+        class GradeTooHighException : public std::exception
         {
-            const  char * what() const noexcept override ;
-        } ;
-        class GradeTooLowException :public std :: exception
+            const char *what() const noexcept override;
+        };
+        class GradeTooLowException : public std::exception
         {
-            const char * what() const  noexcept override ;
-        } ;
-        void decrement() ;
-        void increment() ;
-        friend  std ::ostream &  operator<<(std ::ostream& os , Bureaucrat& obj) ;
-        
-} ;
+            const char *what() const noexcept override;
+        };
+        void decrement();
+        void increment();
+        friend std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj);
+};
 #endif
