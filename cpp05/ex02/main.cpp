@@ -8,9 +8,9 @@ int main()
 {
     try
     {
-        Bureaucrat bob("Bob", 1);
-        Bureaucrat joe("Joe", 140);
-
+        Bureaucrat bob("Bob", 149);
+        Bureaucrat joe("Joe", 2);
+        
         ShrubberyCreationForm shrub("garden");
         RobotomyRequestForm robo("Bender");
         PresidentialPardonForm pardon("Ford Prefect");
@@ -21,14 +21,12 @@ int main()
 
         joe.signForm(shrub);
         joe.executeForm(shrub);
-
+        
         bob.signForm(robo);
         bob.executeForm(robo);
-
+        std::cout<<shrub.get_sign() <<"\n" ;
         bob.signForm(pardon);
-        bob.executeForm(pardon);
-
-    
+        bob.executeForm(pardon);    
         ShrubberyCreationForm failShrub("fail");
         bob.executeForm(failShrub);
 
@@ -39,5 +37,6 @@ int main()
     {
         std::cout << "Exception: " << e.what() << std::endl;
     }
+    
     return 0;
 }

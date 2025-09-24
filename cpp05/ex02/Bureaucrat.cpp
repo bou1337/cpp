@@ -1,24 +1,39 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
-Bureaucrat::Bureaucrat() : name("default"), grade(150) {}
+Bureaucrat::Bureaucrat() : name("default"), grade(150) 
+{
+    std::cout <<name<<"s Default Constructor called\n";
+}
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade)
-{
+{   
+    std::cout << name <<"'s Constructor called\n";
     if (grade < 1)
         throw GradeTooHighException();
     else if (grade > 150)
         throw GradeTooLowException();
+    
+
+    
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &obj) : name(obj.name), grade(obj.grade) {}
+Bureaucrat::Bureaucrat(const Bureaucrat &obj) : name(obj.name), grade(obj.grade) {
+    std::cout << "Bureaucrat copy constructor called" ;
+}
 
-Bureaucrat::~Bureaucrat() {}
+Bureaucrat::~Bureaucrat() {
+      std::cout << name<<"'s Destructor called\n";
+}
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
 {
     if (this != &obj)
+    {
         this->grade = obj.grade;
+        this->name = obj.name ;
+    }
+    std::cout <<name<<"'s operator assignment called\n";
     return *this;
 }
 

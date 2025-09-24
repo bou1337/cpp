@@ -1,7 +1,7 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form() : name("Grade name"), sign(false), grade_to_sign(0), grade_to_execute(0)
+Form::Form() : name("Form_name"), sign(false), grade_to_sign(0), grade_to_execute(0)
 {
     std::cout << "Form's default constructor called\n";
 }

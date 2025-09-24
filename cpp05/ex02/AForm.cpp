@@ -26,6 +26,7 @@ AForm &AForm::operator=(const AForm &obj)
 {
     if (this != &obj)
     {
+
         this->sign = obj.sign;
     }
     std::cout << "Copy assignment operator called\n";
@@ -84,4 +85,8 @@ std::ostream &operator<<(std::ostream &os, const AForm &obj)
     return os;
 }
 
+
+AForm ::AForm(): name("Form_name"), sign(false), grade_to_sign(0), grade_to_execute(0)
+{
+}
 
