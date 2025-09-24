@@ -31,7 +31,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
     if (this != &obj)
     {
         this->grade = obj.grade;
-        this->name = obj.name ;
+        //this->name = obj.name ;
     }
     std::cout <<name<<"'s operator assignment called\n";
     return *this;
