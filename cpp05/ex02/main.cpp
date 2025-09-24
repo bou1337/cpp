@@ -28,14 +28,11 @@ int main()
         bob.signForm(pardon);
         bob.executeForm(pardon);
 
-        // Try to execute unsigned form
+    
         ShrubberyCreationForm failShrub("fail");
         bob.executeForm(failShrub);
 
-        // Try to sign with too low grade
         joe.signForm(pardon);
-
-        // Try to execute with too low grade
         joe.executeForm(pardon);
     }
     catch (std::exception &e)

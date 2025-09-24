@@ -9,7 +9,7 @@ private:
 public:
     PresidentialPardonForm(std::string target);
     virtual ~PresidentialPardonForm();
-    void execute(Bureaucrat const & executor) const override;
+    void execute(Bureaucrat const & executor) const ;
 };
 
 #endif

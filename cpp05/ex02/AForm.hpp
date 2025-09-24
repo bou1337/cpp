@@ -12,7 +12,6 @@ private:
     bool sign;
     const int grade_to_sign;
     const int grade_to_execute;
-    // No target here; each derived class has its own target
 
 public:
     AForm(std::string name, int grade_to_sign, int grade_to_execute);
@@ -28,9 +27,8 @@ public:
 
     virtual void execute(Bureaucrat const & executor) const = 0;
 
-    class GradeTooHighException : public std::exception { public: const char *what() const noexcept override; };
-    class GradeTooLowException : public std::exception { public: const char *what() const noexcept override; };
-    class NotSignedException : public std::exception { public: const char *what() const noexcept override; };
+    class GradeTooHighException : public std::exception { public: const char *what() const throw(); };
+    class GradeTooLowException : public std::exception { public: const char *what() const throw(); };
 
 protected:
     void checkExecution(Bureaucrat const & executor) const;

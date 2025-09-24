@@ -9,7 +9,7 @@ private:
 public:
     ShrubberyCreationForm(std::string target);
     virtual ~ShrubberyCreationForm();
-    void execute(Bureaucrat const & executor) const override;
+    void execute(Bureaucrat const & executor) const;
 };
 
 #endif

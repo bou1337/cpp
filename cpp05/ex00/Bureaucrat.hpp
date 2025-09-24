@@ -18,14 +18,15 @@ class Bureaucrat
         ~Bureaucrat();
         class GradeTooHighException : public std::exception
         {
-            const char *what() const noexcept override;
+            const char *what() const  throw() ;
         };
         class GradeTooLowException : public std::exception
         {
-            const char *what() const noexcept override;
+            const char *what() const throw();
         };
         void decrement();
         void increment();
-        friend std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj);
 };
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj);
+
 #endif

@@ -9,7 +9,7 @@ private:
 public:
     RobotomyRequestForm(std::string target);
     virtual ~RobotomyRequestForm();
-    void execute(Bureaucrat const & executor) const override;
+    void execute(Bureaucrat const & executor) const; 
 };
 
 #endif

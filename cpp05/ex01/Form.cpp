@@ -26,7 +26,6 @@ Form &Form::operator=(const Form &obj)
 {
     if (this != &obj)
     {
-        // name, grade_to_sign, and grade_to_execute are const and cannot be assigned
         this->sign = obj.sign;
     }
     std::cout << "Copy assignment operator called\n";
@@ -65,11 +64,11 @@ Form::~Form()
     std::cout << "Form's Destructor called\n";
 }
 
-const char* Form::GradeTooHighException::what() const noexcept {
+const char* Form::GradeTooHighException::what() const throw() {
     return "Form: Grade too high!";
 }
 
-const char* Form::GradeTooLowException::what() const noexcept {
+const char* Form::GradeTooLowException::what() const throw() {
     return "Form: Grade too low!";
 }
 

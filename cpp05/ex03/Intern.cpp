@@ -26,7 +26,7 @@ AForm *Intern::makeForm(const std::string &formName, const std::string &target) 
         if (formName == names[i])
         {
             std::cout << "Intern creates " << formName << std::endl;
-            // Delete unused forms
+            
             for (int j = 0; j < 3; ++j)
                 if (j != i) delete forms[j];
             return forms[i];

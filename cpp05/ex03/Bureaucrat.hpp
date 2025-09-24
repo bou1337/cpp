@@ -26,8 +26,8 @@ public:
     void signForm(AForm &form) const;
     void executeForm(AForm const & form) const;
 
-    class GradeTooHighException : public std::exception { public: const char *what() const noexcept override; };
-    class GradeTooLowException : public std::exception { public: const char *what() const noexcept override; };
+    class GradeTooHighException : public std::exception { public: const char *what() const throw(); };
+    class GradeTooLowException : public std::exception { public: const char *what() const throw(); };
 };
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj);
