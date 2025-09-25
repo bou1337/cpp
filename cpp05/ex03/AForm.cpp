@@ -26,6 +26,7 @@ AForm &AForm::operator=(const AForm &obj)
 {
     if (this != &obj)
     {
+
         this->sign = obj.sign;
     }
     std::cout << "Copy assignment operator called\n";
@@ -62,7 +63,7 @@ void AForm::beSigned(const Bureaucrat &obj)
 void AForm::checkExecution(Bureaucrat const & executor) const
 {
     if (!sign)
-        throw NotSignedException();
+        throw std::runtime_error("Form is not signed!");
     if (executor.getGrade() > grade_to_execute)
         throw GradeTooLowException();
 }
@@ -75,10 +76,6 @@ const char* AForm::GradeTooLowException::what() const throw() {
     return "Form: Grade too low!";
 }
 
-const char* AForm::NotSignedException::what() const throw() {
-    return "Form: Not signed!";
-}
-
 std::ostream &operator<<(std::ostream &os, const AForm &obj)
 {
     os << "Form's name: " << obj.get_name()
@@ -88,4 +85,8 @@ std::ostream &operator<<(std::ostream &os, const AForm &obj)
     return os;
 }
 
+
+AForm ::AForm(): name("Form_name"), sign(false), grade_to_sign(0), grade_to_execute(0)
+{
+}
 
