@@ -1,16 +1,15 @@
 
+#ifndef ITER_HPP
+#define ITER_HPP
 
-#ifndef ITER_H
-#define  ITER_H
+#include <cstddef> 
 
-template <typename T> 
-void iter(T *array  , int size ,void(*func)(T &))
+template <typename T, typename Func>
+void iter(T *array, size_t length, Func func)
 {
-    for(int i = 0 ; i<size ; i++)
-    {
-        func(array[i]) ;
-    }
+    
+    for (size_t i = 0; i < length; ++i)
+        func(array[i]);
 }
 
-#endif
-
+#endif 

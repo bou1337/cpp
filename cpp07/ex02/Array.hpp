@@ -9,27 +9,27 @@ class Array
 {
 private:
     T *data;
-    unsigned int size;
+    unsigned int _size;
 
 public:
     
-    Array() : data(nullptr), size(0)
+    Array() : data(NULL), _size(0)
     {
         std::cout << "Default constructor called\n";
     }
 
-    Array(unsigned int n) : data(nullptr), size(n)
+    Array(unsigned int n) : data(NULL), _size(n)
     {
         if (n > 0)
             data = new T[n]; 
         std::cout << "Constructor called\n";
     }
-    Array(const Array &obj) : data(nullptr), size(obj.size)
+    Array(const Array &obj) : data(NULL), _size(obj._size)
     {
-        if (obj.size > 0)
+        if (obj._size > 0)
         {
-            data = new T[obj.size];
-            for (unsigned int i = 0; i < size; ++i)
+            data = new T[obj._size];
+            for (unsigned int i = 0; i < _size; ++i)
                 data[i] = obj.data[i]; 
         }
         std::cout << "Copy constructor called\n";
@@ -40,17 +40,17 @@ public:
         if (this != &obj) 
         {
             delete[] data;
-            size = obj.size;
+            _size = obj._size;
 
-            if (size > 0)
+            if (_size > 0)
             {
-                data = new T[size];
-                for (unsigned int i = 0; i < size; ++i)
+                data = new T[_size];
+                for (unsigned int i = 0; i < _size; ++i)
                     data[i] = obj.data[i];
             }
             else
             {
-                data = nullptr;
+                data = NULL;
             }
         }
         std::cout << "Assignment operator called\n";
@@ -59,20 +59,25 @@ public:
 
     T &operator[](unsigned int index)
     {
-        if (index >= size)
+        if (index >= _size)
             throw std::out_of_range("Index out of bounds");
         return data[index];
     }
-    
-    unsigned int size_fnc() const
+    const T &operator[](unsigned int index) const
     {
-        return size;
+        if (index >= _size)
+            throw std::out_of_range("Index out of bounds");
+        return data[index];
+    }
+    unsigned int size() 
+    {
+        return _size;
     }
 
     ~Array()
     {
         delete[] data;
-        data = nullptr;
+        data = NULL;
         std::cout << "Destructor called\n";
     }
 };

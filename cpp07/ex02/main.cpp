@@ -9,7 +9,9 @@ int  main()
     try
     {
         Array<int> a ;
+         std::cout<<"size of array a ="<<a.size()<<"\n" ;
         Array<int> b(20) ;
+        std::cout<<"size of array b ="<<b.size()<<"\n" ;
         for(int  i = 0 ;i<20;i++)
         {
             std::cout<<b[i]<<"," ;
@@ -34,7 +36,9 @@ int  main()
         }
         std::cout<<"\n" ;
         std::cout<<"*****************************************************************************************\n" ;
-        
+        const  Array<int> d(1) ; 
+        std::cout<<d[0]<<"\n" ;
+
 
     }
     catch(const std::exception  &e)

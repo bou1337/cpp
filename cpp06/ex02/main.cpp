@@ -1,100 +1,92 @@
-
 #include "Base.hpp"
-#include "C.hpp"
 #include "A.hpp"
 #include "B.hpp"
-
-#include <cstdlib> 
-#include <ctime>    
+#include "C.hpp"
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
-Base * generate(void)
-{ 
-    int rand = std::rand()%3  ; 
-    switch (rand)
+
+Base* generate(void)
+{
+    int r = std::rand() % 3;
+    switch (r)
     {
-        case 0 : 
-            return new A() ;
-        case 1:
-            return new B() ; 
-        default : 
-            return new C() ;
+        case 0: return new A();
+        case 1: return new B();
+        default: return new C();
     }
-    
 }
+
 void identify(Base* p)
 {
-    if(dynamic_cast<A*>(p))
-        std::cout<<"Type A\n" ;
-    else if(dynamic_cast<B*>(p))
-        std::cout<<"Type B\n" ;
-    else if(dynamic_cast<C*>(p))
-        std:: cout<<"Type C\n" ; 
-    else 
-        std:: cout<<"No one\n" ;
+    if (dynamic_cast<A*>(p))
+        std::cout << "Type A\n";
+    else if (dynamic_cast<B*>(p))
+        std::cout << "Type B\n";
+    else if (dynamic_cast<C*>(p))
+        std::cout << "Type C\n";
+    else
+        std::cout << "Unknown type\n";
 }
-void  identify(Base &p)
+
+void identify(Base& p)
 {
     try
     {
-        dynamic_cast<A&>(p) ;
-        std::cout<<"Type A\n" ;
-        return ;
+        (void)dynamic_cast<A&>(p);
+        std::cout << "Type A\n";
+        return;
     }
-    catch(...)
-    {
+    catch (...) {}
 
-    }
     try
     {
-        dynamic_cast<B&>(p) ;
-        std:: cout<<"Type B\n" ;
-        return ;
+        (void)dynamic_cast<B&>(p);
+        std::cout << "Type B\n";
+        return;
     }
-    catch(...)
-    {}
+    catch (...) {}
+
     try
     {
-        dynamic_cast<C&>(p) ;
-        std::cout<<"Type C\n" ;
-        return ; 
+        (void)dynamic_cast<C&>(p);
+        std::cout << "Type C\n";
+        return;
     }
-    catch(...)
-    {} 
-    std:: cout<<"No one\n" ; 
-    
+    catch (...) {}
+
+    std::cout << "Unknown type\n";
 }
 
-int  main()
-{   srand(time(0)) ;
-    Base   *a = new  A() ; 
-    identify(a)  ; 
-    Base  *b  =  new B() ;
-    identify(b) ;
-    Base  *c = new C() ;
+int main()
+{
+    std::srand(std::time(0));
+
+    std::cout << "identification by pointer:\n";
+    identify(new A());
+    identify(new B());
+    identify(new C());
+    identify(new Base()) ; 
+    std::cout << "--------------------------------------------------\n";
+    std::cout << "identification by ref:\n";
+    A a ;
+    B b ;
+    C c ;
+    Base  base  ; 
+    identify(a) ; 
+    identify(b) ; 
     identify(c) ; 
-    Base   *base = new Base() ; 
-    identify(base) ;
-    std:: cout<<"-----------------------------------------------------------------------------\n" ; 
-    A a1 ; 
-    B b1 ; 
-    C c1 ;
-    Base base1 ;
-    identify(a1) ;
-    identify(b1) ; 
-    identify(c1) ;
-    identify(base1) ; 
-    std::cout<<"-----------------------------------------------------------------------------------\n" ; 
-    int  i = 0 ; 
-    while(i<10)
+    identify(base)   ; 
+    std::cout << "--------------------------------------------------\n";
+
+    std::cout << "Random identification:\n";
+    for (int i = 0; i < 10; i++)
     {
-        Base *rand =generate() ; 
-        identify(rand) ; 
-        delete  rand ; 
-        i++ ; 
+        Base* obj = generate();
+        identify(obj);
+        delete obj;
     }
 
-    delete a;
-    delete b ; 
-    delete c ; 
-    delete base  ; 
- }
+
+    return 0;
+}
