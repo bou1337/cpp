@@ -24,6 +24,13 @@ public:
     void addNumber(int n);
     int shortestSpan() const;
     int longestSpan() const;
+    void addNumber(std::vector<int>::iterator big , std::vector<int>::iterator  ed) ;
+    /*void print()
+    {
+        for(int i :data)
+            std::cout<<i<<"," ;
+    
+    }*/
 };
 
 #endif 

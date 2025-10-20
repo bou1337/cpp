@@ -31,13 +31,13 @@ Span::~Span() {
 
 void Span::addNumber(int n) {
     if (data.size() >= size)
-        throw std::runtime_error("Span is already full");
+        throw std::runtime_error("Span is already full\n");
     data.push_back(n);
 }
 
 int Span::shortestSpan() const {
     if (data.size() < 2)
-        throw std::runtime_error("Not enough elements to find a span");
+        throw std::runtime_error("Not enough elements to find a span\n");
 
     std::vector<int> sorted = data;
     std::sort(sorted.begin(), sorted.end());
@@ -53,9 +53,16 @@ int Span::shortestSpan() const {
 
 int Span::longestSpan() const {
     if (data.size() < 2)
-        throw std::runtime_error("Not enough elements to find a span");
+        throw std::runtime_error("Not enough elements to find a span\n");
 
     int maxVal = *std::max_element(data.begin(), data.end());
     int minVal = *std::min_element(data.begin(), data.end());
     return maxVal - minVal;
+}
+
+void Span:: addNumber(std::vector<int>::iterator big , std::vector<int>::iterator  ed)
+{  
+    if(std::distance(big ,ed)+data.size()>size)
+        throw std::runtime_error("Can't take all data\n") ;
+    data.insert(data.end() , big ,ed) ;
 }
