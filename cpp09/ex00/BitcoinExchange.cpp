@@ -13,7 +13,7 @@ int  check_input_file(char *av[],float *value ,std::map<std::string , float> &da
     if(valid_first_line(line)|| line.empty())
         return  1  ;
     while(std::getline(f,line))
-    {   
+    {  
         if(valid_format(line , value)==0)
         {   
             if(!valid_date(line) )
@@ -22,7 +22,7 @@ int  check_input_file(char *av[],float *value ,std::map<std::string , float> &da
                 //std::<<2011-01-03 => 3 = 0.9                
                 std::cout<<line.substr(0,10)<<" => "<<*value<<" = "<<(*value)*find_exchange(line.substr(0,10),data)<<"\n" ;
             }
-           
+       
         }
     }
     return 0 ;
@@ -33,8 +33,13 @@ int  check_input_file(char *av[],float *value ,std::map<std::string , float> &da
 int valid_format(std:: string s , float *result)
 {
     // year-day-mont | value ;
+    if(s.size()<14)
+    {
+        std::cerr<<"Error: bad input"<<" => "<<s<<"\n" ;
+        return 1 ; 
+    }
     int  stop ;
-    int  i = 0 ; 
+    int  i = 0 ;
     while(i<4)
     {
         if(!isdigit(s[i]))
@@ -63,13 +68,10 @@ int valid_format(std:: string s , float *result)
             return 1 ;
         i++ ;
     }
-    
-    if(s[i]!=' ')
-        return  1 ;
-    if(s[++i]!='|')
-        return  1 ;
-    if(s[++i]!=' ')
-        return 1 ;
+    if(s[i]!=' '|| s[++i]!='|'||s[++i]!=' ' )
+    {
+        std::cerr<<"Error: bad input"<<" => "<<s.substr(0,10)<<"\n" ;
+    }
     i++ ;
     if(valid_value(s,i,result))
         return  1 ;
@@ -92,19 +94,19 @@ int valid_value(std:: string s , int i ,float *rsl)
             goma++ ; 
             if(goma==2)
             {   
-                std::cerr<<"More than one goma in you value\n" ;
+                std::cerr<<"Error: More than one goma in you value\n" ;
                 return 1 ;
             }
             if(j==s.size())
             {
-                std::cerr<<"goma can't be last element\n" ;
+                std::cerr<<"Error: goma can't be last element\n" ;
                 return  1 ;
             }
 
 
         }
         if(!isdigit(s[j]))
-        {
+        {   
             std::cerr<<"Error: not a positive number.\n" ;
             return 1 ;
         }
@@ -149,18 +151,18 @@ int valid_date(std::string s)
     int month = std::stoi(s.substr(5,7)) ;
     int day = std::stoi(s.substr(8,10)) ;
     if(year>2025||year<2009)
-    {   std::cerr<<"year must be between 2009 and 2025\n" ;
+    {   std::cerr<<"Error: year must be between 2009 and 2025\n" ;
         return 1 ;
     }
     if(month<1|| month>12)
-    {   std::cerr<<"month  must be between 1 && 12\n" ;
+    {   std::cerr<<"Error: month  must be between 1 && 12\n" ;
         return 1 ;
     }
      int daysInMonth[] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
     if (isLeapYear(year)) daysInMonth[2] = 29;
     if( day > daysInMonth[month]|| day<1)
     {
-        std::cerr<<"day in month "<<month <<" can't be "<<day<<"\n" ;
+        std::cerr<<"Error: day in month "<<month <<" can't be "<<day<<"\n" ;
         return 1 ;
     } 
     return 0 ;
@@ -176,7 +178,7 @@ int data(std::map<std::string ,float> &data)
     std::ifstream f("data.csv") ;
     if(!f.is_open())
         {
-            std::cerr<<"Error in opening of file\n" ;
+            std::cerr<<"Error: in opening of file\n" ;
             return  1 ;
         }
     std::string line ; 
