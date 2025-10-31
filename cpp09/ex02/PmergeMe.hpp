@@ -8,7 +8,8 @@
 # include <iostream>
 # include <exception>
 #include <sstream>
-void check_input(char *av[]) ;
-long long to_int(std::string s) ;
- void  data_in_vector(std::vector<long long> &data , std::string s) ;
+#include <limits>
+void check_input(char *av[] , std::vector<int> &data_vector , std::list<int> &data_list) ;
+int to_int(std::string s) ;
+void  data_in_vector(std::vector<int> &data_vector , std::string s , std::list<int> &data_list) ;
 #endif
