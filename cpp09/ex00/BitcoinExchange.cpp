@@ -4,7 +4,7 @@
 
 
 int  check_input_file(char *av[],float *value ,std::map<std::string , float> &data )
-{
+{   
     std::ifstream f(av[1]) ;
     if(!f.is_open())
         return  1 ;
@@ -83,7 +83,7 @@ int valid_value(std:: string s , int i ,float *rsl)
 {  
     int goma  =0 ; 
     float result = 0  ; 
-    int j = i ;
+    size_t j = i ;
     int div =10 ;
    
     while(j<s.size())
@@ -123,7 +123,7 @@ int valid_value(std:: string s , int i ,float *rsl)
         if (goma==1)
         {   
             
-            result +=(float)(s[j]-0)/div ;
+            result +=(float)(s[j]-'0')/div ;
             div=div*10 ;
         }
         j++ ;    ; 
@@ -147,9 +147,9 @@ int valid_first_line(std::string line)
 
 int valid_date(std::string s)
 {
-    int year =std::stoi(s.substr(0,4)) ; 
-    int month = std::stoi(s.substr(5,7)) ;
-    int day = std::stoi(s.substr(8,10)) ;
+    int year =std::atoi(s.substr(0,4).c_str()) ; 
+    int month = std::atoi(s.substr(5,7).c_str()) ;
+    int day = std::atoi(s.substr(8,10).c_str()) ;
     if(year>2025||year<2009)
     {   std::cerr<<"Error: year must be between 2009 and 2025\n" ;
         return 1 ;
@@ -173,20 +173,15 @@ bool isLeapYear(int year) {
 }
 int data(std::map<std::string ,float> &data)
 {   
-    std:: string date ; 
+    std:: string date ;
     float exchange_rate ;
     std::ifstream f("data.csv") ;
-    if(!f.is_open())
-        {
-            std::cerr<<"Error: in opening of file\n" ;
-            return  1 ;
-        }
     std::string line ; 
     std::getline(f,line) ;
     while(std::getline(f ,line))
     {   
         date = line.substr(0,10) ;
-        exchange_rate =std::stof(line.substr(11,line.size())) ;
+        exchange_rate =std::atof(line.substr(11,line.size()).c_str()) ;
         data[date] = exchange_rate ;
     }
     return 0 ;
