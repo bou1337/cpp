@@ -10,16 +10,6 @@ int  main(int ac, char *av[])
         if(ac==1)
         throw "Error" ;
         check_input(av, data_vector, data_list) ;
-        for(long long i : data_vector)
-        {
-            std::cout<<i<<"," ;
-        } ;
-        std::cout<<"\n" ;
-        for(long long i : data_list)
-        {
-            std::cout<<i<<",";
-        }
-        std::cout<<"\n" ;
         std:: cout<<"Gooooooooooooooooooood\n" ;
     }
     catch(const char * e)
