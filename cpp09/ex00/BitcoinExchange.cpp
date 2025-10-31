@@ -17,10 +17,15 @@ int  check_input_file(char *av[],float *value ,std::map<std::string , float> &da
         if(valid_format(line , value)==0)
         {   
             if(!valid_date(line) )
-            {
-
+            {   
+                float ext = find_exchange(line.substr(0,10),data) ;
+                if(ext==-1)
+                {
+                    std::cerr<<line.substr(0,10)<<" too early there no btc yet\n" ;
+                }
+                else 
                 //std::<<2011-01-03 => 3 = 0.9                
-                std::cout<<line.substr(0,10)<<" => "<<*value<<" = "<<(*value)*find_exchange(line.substr(0,10),data)<<"\n" ;
+                std::cout<<line.substr(0,10)<<" => "<<*value<<" = "<<(*value)*ext<<"\n" ;
             }
        
         }
