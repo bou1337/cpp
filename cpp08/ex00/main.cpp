@@ -20,40 +20,24 @@ int main()
         std::vector<int>::iterator it = easyfind(v, 4);
         std::cout << *it << "\n";
         it = easyfind(v, 0);
+
     }
     catch (std::exception &e) {
         std::cout << e.what();
     }
-
     std::cout << "*************************************************\n";
-
-    try {
-        std::cout << "test with list\n";
-        int arr1[] = {1, 2, 3, 4, 5};
-        std::list<int> list(arr1, arr1 + 5);
-
-        std::list<int>::iterator it = easyfind(list, 1);
-        std::cout << *it << "\n";
-        it = easyfind(list, -1);
+    try
+    {   int tab[] = {1 ,1,2 ,3,4} ;
+        std::cout <<"Test with const vector\n" ;
+        const   std::vector<int> v(tab, tab+5) ;
+        std::vector<int>::const_iterator  it  = easyfind(v,1) ;
+        std::cout<<*it <<"\n" ;  
     }
-    catch (const std::exception &e) {
+    catch(const std::exception& e)
+    {
         std::cerr << e.what() << '\n';
     }
-
-    std::cout << "*************************************************\n";
-
-    try {
-        std::cout << "test with deque\n";
-        int arr2[] = {1, 2, 3, 4, 5};
-        std::deque<int> deq(arr2, arr2 + 5);
-
-        std::deque<int>::iterator it = easyfind(deq, 5);
-        std::cout << *it << "\n";
-        it = easyfind(deq, 200);
-    }
-    catch (const std::exception &e) {
-        std::cerr << e.what() << '\n';
-    }
+    
 
     return 0;
 }

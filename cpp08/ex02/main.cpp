@@ -3,7 +3,6 @@
 #include "MutantStack.hpp"
 #include <stack>
 
-
 int main()
 {
 MutantStack<int> mstack;
@@ -21,6 +20,8 @@ MutantStack<int>::iterator it = mstack.begin();
 MutantStack<int>::iterator ite = mstack.end();
 ++it;
 --it;
+const MutantStack<int> b(mstack) ;
+
 while (it != ite)
 {
 std::cout << *it << std::endl;

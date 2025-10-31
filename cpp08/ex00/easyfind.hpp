@@ -16,5 +16,15 @@ typename  T::iterator  easyfind( T  &data ,int n)
     throw  std::runtime_error("this value does  not exist in your container\n") ;
 
 }
+template <typename T>
+typename T::const_iterator easyfind(const T &data, int n)
+{
+    typename T::const_iterator it = std::find(data.begin(), data.end(), n);
+    if (it != data.end())
+        return it;
+    else
+        throw std::runtime_error("This value does not exist in your container\n");
+}
+
 
 #endif

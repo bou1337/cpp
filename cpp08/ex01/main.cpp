@@ -31,9 +31,9 @@ int main()
     try
     {
         
-        Span s(20) ;
+        Span s(10000) ;
     
-        for(int  i = 0 ; i<20 ; i++)
+        for(int  i = 0 ; i<10000 ; i++)
         {
             s.addNumber(i) ;
         }
@@ -51,9 +51,9 @@ int main()
     {
         Span s(4) ;
         s.addNumber(1) ; 
-        s.addNumber(1) ; 
         s.addNumber(2) ; 
-        s.addNumber(3) ;
+        s.addNumber(3) ; 
+        s.addNumber(4) ;
         std::cout<<s.shortestSpan()<<"\n" ; 
         std::cout<<s.longestSpan()<<"\n" ; 
 
