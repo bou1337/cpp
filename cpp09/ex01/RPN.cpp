@@ -5,12 +5,16 @@ void result(const std::string& s)
 {
     std::stack<int> stack;
 
-    for (int i = 0; i < s.size(); ++i)
+    for (size_t  i = 0; i < s.size(); ++i)
     {
         char c = s[i];
 
         if (c == ' ')
             continue;
+        if(i+1<s.size()&&(c)&&isdigit(s[i+1]))
+        {
+            throw "Error:number can be more than one  digit\n";
+        }
         if (isdigit(c))
         {
             stack.push(c - '0');

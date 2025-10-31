@@ -15,7 +15,7 @@ int main(int ac , char*av[])
     }
     catch(const char  *e)
     {
-        std::cerr << e << '\n';
+        std::cerr << e;
     }
     
 }
