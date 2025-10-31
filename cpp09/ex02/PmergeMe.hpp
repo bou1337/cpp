@@ -7,18 +7,8 @@
 # include <string>
 # include <iostream>
 # include <exception>
-
-class PmergeMe {
-
-public:
-    static void sort(std::vector<int>& container) ;
-
-private:
-    PmergeMe();
-    PmergeMe(const PmergeMe& src);
-    PmergeMe& operator=(const PmergeMe& rhs);
-    ~PmergeMe();
-    static void fordJohnson(std::vector<int>& C);
-};
-
+#include <sstream>
+void check_input(char *av[]) ;
+long long to_int(std::string s) ;
+ void  data_in_vector(std::vector<long long> &data , std::string s) ;
 #endif
