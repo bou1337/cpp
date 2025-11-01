@@ -24,9 +24,7 @@ int main(int ac, char *av[])
         }
         std::cout << "\n";
 
-    
         struct timespec start_time, end_time;
-
       
         clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &start_time);
         
@@ -35,7 +33,6 @@ int main(int ac, char *av[])
         clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &end_time);
         
         double vec_us = getTimeDiff(start_time, end_time); 
-
 
         clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &start_time);
         
