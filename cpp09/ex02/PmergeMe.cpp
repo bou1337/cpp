@@ -38,3 +38,15 @@ void check_input(char *av[] , std::vector<int> &data_vector , std::list<int> &da
         data_list.push_back(result) ;
         }
    }
+
+
+double getTimeDiff(struct timespec &start, struct timespec &end)
+{
+    
+    double start_ns = (double)start.tv_sec * 1000000000.0 + (double)start.tv_nsec;
+    double end_ns   = (double)end.tv_sec * 1000000000.0 + (double)end.tv_nsec;
+    double diff_ns = end_ns - start_ns;
+
+    
+    return diff_ns / 1000.0;
+}
