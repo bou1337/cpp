@@ -1,6 +1,6 @@
 
 
-#ifndef RPN_h
+#ifndef RPN_H
 #define RPN_H
 #include <set>
 #include <stack>
