@@ -295,9 +295,6 @@ gdb ./program_name
 ## 👤 Author
 
 **Ismail AIT BOUGNSA**
-- GitHub: [@bou1337](https://github.com/bou1337)
-- LinkedIn: [ait-bougnsa-ismail](https://www.linkedin.com/in/ait-bougnsa-ismail-567810147)
-- 42 Login: `iait-bou`
 
 ## 📄 License
 
